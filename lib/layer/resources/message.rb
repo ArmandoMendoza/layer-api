@@ -6,7 +6,7 @@ module Layer
       end
 
       def update_parts(params)
-        client.patch(
+        client.put(
           update_parts_url,
           body: params.to_json,
           headers: client.layer_patch_header
