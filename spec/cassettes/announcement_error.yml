@@ -2,42 +2,44 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.layer.com/apps/<APP_ID>/announcements
+    uri: https://api.layer.com/apps/announcements
     body:
       encoding: UTF-8
       string: "{}"
     headers:
       Accept:
       - application/vnd.layer+json; version=1.0
-      Authorization:
-      - Bearer <API_TOKEN>
       Content-Type:
       - application/json
-      If-None-Match:
-      - e7cf1b8d-58ea-4484-bb6a-7f6c76a93915
+      Authorization:
+      - Bearer
       User-Agent:
       - Faraday v0.9.2
+      If-None-Match:
+      - 89f8e757-b9b0-47f9-8dd0-d7aceb91defe
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 422
-      message: Unprocessable Entity
+      code: 403
+      message: Forbidden
     headers:
       Server:
-      - nginx/1.8.0
+      - nginx/1.10.1
       Date:
-      - Wed, 03 Feb 2016 01:13:53 GMT
+      - Thu, 02 Nov 2017 20:36:39 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
-      - '178'
+      - '128'
       Connection:
       - keep-alive
+      Www-Authenticate:
+      - Bearer realm="Layer Platform API"
     body:
       encoding: UTF-8
-      string: '{"url":"https://developer.layer.com/docs/platform","data":{"property":"recipients"},"code":104,"id":"missing_property","message":"Object
-        is missing required member ''recipients''"}'
+      string: '{"id":"invalid_app_id","code":2,"message":"The referenced App ID is
+        invalid.","url":"https://developer.layer.com/docs/platform"}'
     http_version: 
-  recorded_at: Wed, 03 Feb 2016 01:13:54 GMT
+  recorded_at: Thu, 02 Nov 2017 20:34:51 GMT
 recorded_with: VCR 2.9.3

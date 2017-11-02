@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.layer.com/apps/<APP_ID>/webhooks
+    uri: https://api.layer.com/apps/webhooks
     body:
       encoding: UTF-8
       string: '{"version":"1.0","target_url":"https://mydomain.com/my-webhook-endpoint","events":["conversation.created","message.sent"],"secret":"1697f925ec7b1697f925ec7b","config":{"key1":"value1","key2":"value2"}}'
@@ -12,31 +12,34 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer <API_TOKEN>
+      - Bearer
       User-Agent:
       - Faraday v0.9.2
       If-None-Match:
-      - 8b8b7faf-4346-4d7f-9d23-fbbdea4f3a7f
+      - 7830f8d1-8027-492b-a022-d72d4b507b0a
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 201
-      message: Created
+      code: 406
+      message: Not Acceptable
     headers:
       Server:
-      - nginx/1.8.0
+      - nginx/1.10.1
       Date:
-      - Thu, 03 Mar 2016 22:32:15 GMT
+      - Thu, 02 Nov 2017 20:37:08 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
-      - '449'
+      - '298'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"id":"layer:///apps/<APP_ID>/webhooks/f0de1ed0-91bf-4678-922b-ab9a5aa7e86c","url":"https://api.layer.com/apps/<APP_ID>/webhooks/f0de1ed0-91bf-4678-922b-ab9a5aa7e86c","version":"1.0","target_url":"https://mydomain.com/my-webhook-endpoint","events":["conversation.created","message.sent"],"status":"unverified","created_at":"2016-03-03T22:32:15.828Z","config":{"key1":"value1","key2":"value2"}}'
+      string: '{"id":"invalid_header","code":107,"message":"Invalid Accept header;
+        must be one of: application/vnd.layer+json; version=1.0, application/vnd.layer+json;
+        version=1.1, application/vnd.layer+json; version=2.0, application/vnd.layer+json;
+        version=3.0","url":"https://developer.layer.com/docs/platform"}'
     http_version: 
-  recorded_at: Thu, 03 Mar 2016 22:32:14 GMT
+  recorded_at: Thu, 02 Nov 2017 20:35:20 GMT
 recorded_with: VCR 2.9.3

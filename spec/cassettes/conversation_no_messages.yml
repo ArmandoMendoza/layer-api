@@ -2,82 +2,44 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.layer.com/apps/<APP_ID>/conversations
+    uri: https://api.layer.com/apps/conversations
     body:
       encoding: UTF-8
       string: '{"participants":["1234","5678"],"distinct":false,"metadata":{"background_color":"#3c3c3c"}}'
     headers:
       Accept:
       - application/vnd.layer+json; version=1.0
-      Authorization:
-      - Bearer <API_TOKEN>
       Content-Type:
       - application/json
-      If-None-Match:
-      - c719613b-5541-49cd-a517-686993bc36f3
+      Authorization:
+      - Bearer
       User-Agent:
       - Faraday v0.9.2
+      If-None-Match:
+      - adb34ca7-276a-4734-8938-8b36cb9e2b2d
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 201
-      message: Created
+      code: 403
+      message: Forbidden
     headers:
       Server:
-      - nginx/1.8.0
+      - nginx/1.10.1
       Date:
-      - Wed, 03 Feb 2016 01:14:40 GMT
+      - Thu, 02 Nov 2017 20:36:54 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
-      - '462'
+      - '128'
       Connection:
       - keep-alive
+      Www-Authenticate:
+      - Bearer realm="Layer Platform API"
     body:
       encoding: UTF-8
-      string: '{"url":"https://api.layer.com/apps/<APP_ID>/conversations/c719613b-5541-49cd-a517-686993bc36f3","participants":["5678","1234"],"id":"layer:///conversations/c719613b-5541-49cd-a517-686993bc36f3","distinct":false,"metadata":{"background_color":"#3c3c3c"},"created_at":"2016-02-03T01:14:40.222Z","messages_url":"https://api.layer.com/apps/<APP_ID>/conversations/c719613b-5541-49cd-a517-686993bc36f3/messages"}'
+      string: '{"id":"invalid_app_id","code":2,"message":"The referenced App ID is
+        invalid.","url":"https://developer.layer.com/docs/platform"}'
     http_version: 
-  recorded_at: Wed, 03 Feb 2016 01:14:40 GMT
-- request:
-    method: get
-    uri: https://api.layer.com/apps/<APP_ID>/conversations/c719613b-5541-49cd-a517-686993bc36f3/messages
-    body:
-      encoding: UTF-8
-      string: "{}"
-    headers:
-      Accept:
-      - application/vnd.layer+json; version=1.0
-      Authorization:
-      - Bearer <API_TOKEN>
-      Content-Type:
-      - application/json
-      If-None-Match:
-      - 51e1f134-3948-4be3-8957-6ed0990c406f
-      User-Agent:
-      - Faraday v0.9.2
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx/1.8.0
-      Date:
-      - Wed, 03 Feb 2016 01:14:41 GMT
-      Content-Type:
-      - application/json; charset=UTF-8
-      Content-Length:
-      - '2'
-      Connection:
-      - keep-alive
-      Layer-Count:
-      - '0'
-    body:
-      encoding: UTF-8
-      string: "[]"
-    http_version: 
-  recorded_at: Wed, 03 Feb 2016 01:14:41 GMT
+  recorded_at: Thu, 02 Nov 2017 20:35:06 GMT
 recorded_with: VCR 2.9.3
